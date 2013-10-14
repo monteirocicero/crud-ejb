@@ -9,17 +9,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "DOGS")
-@SequenceGenerator(name = Dog.DOG_SEQUENCE_NAME, sequenceName = Dog.DOG_SEQUENCE_NAME, allocationSize = 53)
 public class Dog {
-	
-	public static final String DOG_SEQUENCE_NAME = "DOG_SEQUENCE_ID";
-
+		
 	private Integer id;
 	private String name;
 	private double weight;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = DOG_SEQUENCE_NAME)
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}

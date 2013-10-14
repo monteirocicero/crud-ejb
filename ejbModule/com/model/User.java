@@ -3,21 +3,17 @@ package com.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "USERS")
 @NamedQuery(name = "User.findUserByEmail", query = "select u from User u where u.email = :email")
-@SequenceGenerator(name = User.USER_SEQUENCE_NAME, sequenceName = User.USER_SEQUENCE_NAME, allocationSize = 53)
 public class User {
 
 	public static final String FIND_BY_EMAIL = "User.findUserByEmail";
-	public static final String USER_SEQUENCE_NAME = "USER_SEQUENCE_NAME_ID";
-
+	
 	private Integer id;
 	private String email;
 	private String password;
@@ -25,7 +21,7 @@ public class User {
 	private String role;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = USER_SEQUENCE_NAME)
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}
